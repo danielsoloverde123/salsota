@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}EL BULEVAR — La Catedral de la Salsa & Cultura Latina{% endblock %}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Capa Ambient de Escenario -->
+    <div class="salsa-stage-overlay" aria-hidden="true"></div>
+
+    <!-- Navegación Principal -->
+    <header class="navbar">
+        <nav class="nav-container">
+            <a href="{{ url_for('index') }}" class="brand-logo" title="El Bulevar">
+                EL<span>BULEVAR</span>
+            </a>
+
+            <!-- Indicador "EN CLAVE & RITMO" -->
+            <div class="now-playing-badge hidden-mobile">
+                <span class="status-dot"></span>
+                EN CLAVE & RITMO
+            </div>
+
+            <!-- Botón Menú Hamburguesa (Móvil) -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menú">☰</button>
+            
+            <!-- Lista de Enlaces de Navegación -->
+            <ul class="nav-menu" id="navMenu">
+                <li>
+                    <a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('historia') }}" class="nav-link {% if request.endpoint == 'historia' %}active{% endif %}">
+                        Historia & Orígenes
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('sobre_nosotros') }}" class="nav-link {% if request.endpoint == 'sobre_nosotros' %}active{% endif %}">
+                        Nuestra Orquesta
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('contactenos') }}" class="nav-link {% if request.endpoint == 'contactenos' %}active{% endif %}">
+                        Contáctenos
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="brand-logo">EL<span>BULEVAR</span></span>
+                <p class="footer-genres">
+                    GUAGUANCÓ • SON MONTUNO • MAMBO • BOOGALOO • SALSA BRAVA
+                </p>
+            </div>
+            <p class="footer-copy">
+                &copy; 2026 <span>ELBULEVAR</span>. Todos los derechos reservados. Preservando el golpe, la elegancia y el fuego de la cultura latina.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script de Menú Móvil -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

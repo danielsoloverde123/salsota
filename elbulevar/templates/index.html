@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - EL BULEVAR{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <!-- BANNER PRINCIPAL DE INICIO -->
+    <div class="hero-banner-container">
+        <img src="{{ url_for('static', filename='imagenes/inicio-hero.jpg') }}" alt="Portada EL BULEVAR - Cultura Salsa" class="hero-banner-img">
+    </div>
+
+    <div class="section-badge" style="margin-bottom: 0.8rem;">
+        <span style="color: var(--primary-red, #e50914);">✦</span> CULTURA, MELOMANÍA Y BARRIO
+    </div>
+
+    <h1 class="hero-title">EL RITMO, LA HISTORIA Y LA <span>ESENCIA DE LA SALSA</span></h1>
+    <p class="hero-description">
+        Bienvenido a EL BULEVAR, la esquina digital creada para honrar el legado orquestal, las raíces afrocaribeñas y la pasión del bailador en todo el mundo.
+    </p>
+    <div>
+        <a href="{{ url_for('historia') }}" class="btn btn-primary">Explorar Historia</a>
+        <a href="{{ url_for('sobre_nosotros') }}" class="btn btn-outline">Conocer el Proyecto</a>
+    </div>
+</section>
+
+<section class="container">
+    <div class="page-header">
+        <div class="section-badge">
+            <span style="color: var(--primary-red, #e50914);">✦</span> NUESTRO IDENTIKIT
+        </div>
+        <h2 class="page-title">PILARES DE <span>EL BULEVAR</span></h2>
+        <p class="page-subtitle">Siente el golpe de la clave, el timbre del timbal y la narrativa viva de las calles.</p>
+    </div>
+
+    <div class="grid-cards">
+        <div class="card">
+            <!-- TARJETA: Música & Armonía -->
+            <div class="card-img-wrapper">
+                <img src="{{ url_for('static', filename='imagenes/musica-armonia.jpg') }}" alt="Música y Armonía Salsera" class="card-img">
+            </div>
+            <div class="card-content">
+                <span class="card-tag">Son & Orquestación</span>
+                <h3 class="card-title">Música & Armonía</h3>
+                <p class="card-text">
+                    Desde el son montuno y el mambo hasta la salsa dura neoyorquina y el sonido romántico de los 80. Analizamos la arquitectura rítmica que le da alma a cada orquesta.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <!-- TARJETA: Cultura de Barrio -->
+            <div class="card-img-wrapper">
+                <img src="{{ url_for('static', filename='imagenes/cultura-barrio.jpg') }}" alt="Cultura de Barrio y Salsa" class="card-img">
+            </div>
+            <div class="card-content">
+                <span class="card-tag">Crónica Urbana</span>
+                <h3 class="card-title">Cultura de Barrio</h3>
+                <p class="card-text">
+                    La salsa es el periódico del pueblo latino. Es la poesía lírica y la vivencia cotidiana inmortalizada por leyendas como Héctor Lavoe, Rubén Blades y Tite Curet Alonso.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <!-- TARJETA: Baile & Clave -->
+            <div class="card-img-wrapper">
+                <img src="{{ url_for('static', filename='imagenes/baile-clave.jpg') }}" alt="El Baile y la Clave Salsera" class="card-img">
+            </div>
+            <div class="card-content">
+                <span class="card-tag">Pista & Timbal</span>
+                <h3 class="card-title">El Baile & La Clave</h3>
+                <p class="card-text">
+                    El lenguaje corporal del melómano y el bailador. Explora la velocidad del estilo caleño, la cadencia de Puerto Rico, la elegancia On2 de Nueva York y la energía del casino.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacto & Backstage — EL BULEVAR{% endblock %}
+
+{% block content %}
+<section class="container">
+    <div class="page-header">
+        <div class="section-badge">
+            <span style="color: var(--primary-red);">✦</span> CONEXIÓN DIRECTA CON EL BULEVAR
+        </div>
+        <h1 class="page-title">Sintoniza con <span>Nosotros</span></h1>
+        <p class="page-subtitle">¿Tienes aportes históricos, consultas sobre orquestas, colecciones de vinilos o propuestas culturales? Escríbenos y mantengamos la clave encendida.</p>
+    </div>
+
+    <div class="contact-container glass-panel">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        <span style="font-size: 1.1rem;">🔔</span>
+                        <span>{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('contactenos') }}" method="POST" id="formContacto">
+            <div class="form-group">
+                <label for="nombre" class="form-label">Nombre Completo *</label>
+                <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Ej. Héctor Lavoe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Correo Electrónico *</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="ejemplo@salseros.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="asunto" class="form-label">Asunto / Motivo *</label>
+                <input type="text" id="asunto" name="asunto" class="form-input" placeholder="Ej. Aporte histórico, partituras u orquesta" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mensaje" class="form-label">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" class="form-textarea" placeholder="Déjanos tu nota, sugerencia o reseña cultural aquí..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 6px;">
+                <span>▶</span> ENVIAR MENSAJE AL BULEVAR
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}

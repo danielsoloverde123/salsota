@@ -1,0 +1,649 @@
+/* ==========================================================================
+   EL BULEVAR - HOJA DE ESTILOS PRINCIPAL
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES GLOBALES & RESET
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta de Colores Nocturna & Salsa */
+  --bg-main: #0c0d10;
+  --bg-card: #15171e;
+  --bg-card-hover: #1c1f29;
+  --primary-red: #e50914;
+  --primary-red-hover: #b80710;
+  --text-main: #f1f3f5;
+  --text-muted: #9ea5b4;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(229, 9, 20, 0.5);
+
+  /* Fuentes & Sombras */
+  --font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   2. LAYOUT & CONTENEDORES
+   -------------------------------------------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* Encabezados de Página */
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.page-title span {
+  color: var(--primary-red);
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Componente Badge */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(229, 9, 20, 0.1);
+  border: 1px solid rgba(229, 9, 20, 0.25);
+  color: var(--text-main);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO SECTION (INICIO)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-banner-container {
+  width: 100%;
+  max-height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.hero-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.hero-title span {
+  color: var(--primary-red);
+}
+
+.hero-description {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   4. TARJETAS & GRIDS (.grid-cards, .card)
+   -------------------------------------------------------------------------- */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background-color: var(--bg-card-hover);
+  border-color: rgba(229, 9, 20, 0.4);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-tag {
+  color: var(--primary-red);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+}
+
+.card-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Panel Estilo Cristal para Formularios o Contenidos Anchos */
+.glass-panel {
+  background: linear-gradient(145deg, rgba(21, 23, 30, 0.9), rgba(12, 13, 16, 0.95));
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* --------------------------------------------------------------------------
+   5. BOTONES
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  margin: 0.25rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-red);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-red-hover);
+  box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   6. FORMULARIOS (.form-group, .contact-container)
+   -------------------------------------------------------------------------- */
+.contact-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 3px var(--border-focus);
+}
+
+.form-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Alertas de Mensaje (Flask Flash) */
+.alert {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.alert-success {
+  background-color: rgba(40, 167, 69, 0.15);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  color: #2ecc71;
+}
+
+.alert-danger, .alert-error {
+  background-color: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  color: #ff4d4d;
+}
+
+/* --------------------------------------------------------------------------
+   7. TIMELINE (HISTORIA DE LA SALSA)
+   -------------------------------------------------------------------------- */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  border-left: 2px solid rgba(229, 9, 20, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: var(--transition);
+}
+
+.timeline-item:hover {
+  border-color: rgba(229, 9, 20, 0.4);
+  transform: translateX(4px);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.6rem;
+  top: 1.75rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--primary-red);
+  border: 3px solid var(--bg-main);
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.8);
+}
+
+.timeline-year {
+  display: inline-block;
+  color: var(--primary-red);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE DESIGN (MEDIA QUERIES)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+  }
+
+  .glass-panel {
+    padding: 1.5rem;
+  }
+
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item::before {
+    left: -2.1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   HEADER & NAVBAR
+   -------------------------------------------------------------------------- */
+.main-header {
+  background-color: rgba(12, 13, 16, 0.95);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--text-main);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+}
+
+.brand-logo span {
+  color: var(--primary-red);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary-red);
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+.main-footer {
+  margin-top: 4rem;
+  background-color: #08090b;
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer-content p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.footer-tagline {
+  margin-top: 0.3rem;
+  color: var(--primary-red) !important;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA NAVBAR Y FOOTER (EL BULEVAR)
+   ========================================================================== */
+
+/* 1. Header y Navbar */
+.navbar {
+  background-color: rgba(12, 13, 16, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  padding: 0.75rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.brand-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-logo span {
+  color: var(--primary-red, #e50914);
+}
+
+/* Indicador On Air */
+.now-playing-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(229, 9, 20, 0.12);
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: var(--primary-red, #e50914);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-red, #e50914);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--primary-red, #e50914);
+}
+
+/* Menú de Navegación */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none; /* Quita las viñetas */
+  margin: 0;
+  padding: 0;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  color: #9ea5b4; /* Quita el color azul de enlace por defecto */
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid var(--primary-red, #e50914);
+  padding-bottom: 0.2rem;
+}
+
+/* Botón Hamburguesa (Oculto en Escritorio) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 2. Estilos del Footer */
+.footer {
+  background-color: #08090b;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.5rem 0;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-genres {
+  color: var(--primary-red, #e50914);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-top: 0.5rem;
+}
+
+.footer-copy {
+  color: #717886;
+  font-size: 0.85rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.footer-copy span {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* 3. Adaptabilidad para Pantallas Móviles */
+@media (max-width: 868px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #0c0d10;
+    flex-direction: column;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 1.25rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+}
